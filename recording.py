@@ -19,8 +19,8 @@ freq = 44100
 # Recording duration
 duration = 5
 
-start = 20
-end = 25
+start = 25
+end = 30
 name = 'Mani'
 
 
@@ -36,8 +36,7 @@ for i in range(start, end, 1):
     print(' ')
 
 
-
-for i in range(end):
+for i in range(start, end, 1):
     signal, sr = librosa.load(name+str(i)+".wav", sr=16000)
     RMS=math.sqrt(np.mean(signal**2))
     STD_n= 0.1
