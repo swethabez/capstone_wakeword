@@ -17,10 +17,10 @@ import soundfile
 freq = 44100
 
 # Recording duration
-duration = 5
+duration = 8
 
-start = 25
-end = 30
+start = 820
+end = 830
 name = 'Mani'
 
 
@@ -35,7 +35,7 @@ for i in range(start, end, 1):
     print('end')
     print(' ')
 
-
+'''
 for i in range(start, end, 1):
     signal, sr = librosa.load(name+str(i)+".wav", sr=16000)
     RMS=math.sqrt(np.mean(signal**2))
@@ -43,3 +43,4 @@ for i in range(start, end, 1):
     noise=np.random.normal(0, STD_n, signal.shape[0])
     signal_noise = signal + noise
     soundfile.write(name + 'noise' +str(i)+'.wav',signal_noise,16100)
+'''
