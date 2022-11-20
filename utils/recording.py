@@ -17,11 +17,12 @@ import soundfile
 freq = 44100
 
 # Recording duration
-duration = 8
+duration = 6
 
-start = 820
-end = 830
-name = 'Mani'
+start = 892
+end = 895
+name = 'Mani_false'
+
 
 
 for i in range(start, end, 1):
@@ -30,6 +31,7 @@ for i in range(start, end, 1):
 
     # Record audio for the given number of seconds
     sd.wait()
+
 
     wv.write(name+str(i)+".wav", recording, freq, sampwidth=2)
     print('end')

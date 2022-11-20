@@ -1,0 +1,16 @@
+<html>
+<head><title>Audio Recorder</title> </head>
+<script src="index2.js"></script>
+<input type="submit" value="Record" name="action1" />
+<body>
+	<div id="viz">
+		<canvas id="analyser" width="1024" height="500"></canvas>
+		<canvas id="wavedisplay" width="1024" height="500"></canvas>
+	</div>
+	<div id="controls">
+		<img id="record" src="img/mic128.png" onclick="toggleRecording(this);">
+		<a id="save" href="#"><img src="img/save.svg"></a>
+
+	</div>
+</body>
+</html>

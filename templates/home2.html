@@ -1,0 +1,50 @@
+<html>
+<head>
+    <link rel="stylesheet" href='/static/style.css' />
+    <img src="{{url_for('static', filename='images/fb.png')}}" align="left"  width="128" height="32"/>
+<style>
+    h1 {text-align: center;}
+    h4 {text-align: center;}
+</style>
+
+</head>
+<body>
+
+
+    <header>
+    <h1 style="color:lightblue;"> Capstone: Wake Word Detection</h1>
+    </header>
+    <c>
+    <h4 style="color:black">Spotify</h4>
+    </c>
+
+    <h3>
+        Record your Audio (Click below) </h3 >
+        <form method="post" action="/">
+            <input type="submit" value="Record" name="action1" />
+
+        </form>
+
+        <p>Select a model from below:</p>
+        <form id="form1" action="/model" method="POST" enctype="multipart/form-data">
+            <select id="mySelect" name="models">
+                <option value="MLP">MLP</option>
+                <option value="CNN">CNN</option>
+                <option value="LSTM">LSTM</option>
+
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+
+        <div id="result">
+            {% if models is defined %}
+            Selected Model: {{ models }}
+            {% endif %}
+        </div>
+
+        <p>Here is the prediction: {{ r1}}</p>
+
+
+
+</body>
+</html>

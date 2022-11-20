@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+  .speech {
+    border: 1px solid #ddd;
+    width: 300px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .speech input {
+    border: 0;
+    width: 240px;
+    display: inline-block;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .speech img {
+    float: right;
+    width: 40px;
+  }
+</style>
+
+</head>
+
+<div style="padding-left:16px">
+  <h2 style="border:2px solid DodgerBlue;"> Wake word detection </h2>
+</div>
+
+#<input type="submit" value="Record" name="action1" />
+
+<form id="labnol" method="get" action="http://www.labnol.org">
+  <div class="speech">
+    <input type="text" name="s" id="transcript" placeholder="Say Something" />
+    <img onclick="startDictation()" src="https://i.imgur.com/cHidSVu.gif" />
+  </div>
+</form>
+
+<script>
+  function startDictation() {
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+      var recognition = new webkitSpeechRecognition();
+
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = 'en-US';
+      recognition.start();
+
+      recognition.onresult = function (e) {
+        document.getElementById('transcript').value = e.results[0][0].transcript;
+        recognition.stop();
+        #document.getElementById('labnol').submit();
+        documen
+      };
+      recognition.onerror = function (e) {
+        recognition.stop();
+      };
+    }
+  }
+</script>
+
+
+
+<form >
+  <div class="speech">
+    <input type="text" name="s" id="transcript" placeholder="Say Something" />
+    <img onclick="startDictation()" src="https://i.imgur.com/cHidSVu.gif" />
+  </div>
+</form>
+
+<center>
+      <h3>Audio Clip Recorder</h3>
+      <p><button id="record">Record</button></p>
+      <div id="sound-clip"></div>
+    </center>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="voiceMemo.js"></script>
+
+    <h3>
+      Record your Audio (Click below) <h3 />
+      <form method="post" action="/">
+          <input type="submit" value="Record" name="action1" />
+
+      </form>
+
+      <p>Select a model from below:</p>
+      <form id="form1" action="/model" method="POST" enctype="multipart/form-data">
+          <select id="mySelect" name="models">
+              <option value="MLP">MLP</option>
+              <option value="CNN">CNN</option>
+              <option value="LSTM">LSTM</option>
+
+          </select>
+          <input type="submit" value="Submit">
+      </form>
+
+      <div id="result">
+          {% if models is defined %}
+          Selected Model: {{ models }}
+          {% endif %}
+      </div>
+
+      <p>Here is the prediction: {{ r1}}</p>
+
+
+</html>
