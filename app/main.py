@@ -16,7 +16,8 @@ app = Flask(__name__)
 
 # load the pipeline object
 base_filename = 'LSTM_Spotify'
-dir_name='/Users/sbezawada/Documents/Workspace/MLE-COURSE/Capstone2/capstone_wakeword/models/'
+#dir_name='/Users/sbezawada/Documents/Workspace/MLE-COURSE/Capstone2/capstone_wakeword/app/models/'
+dir_name = './models/'
 suffix='.sav'
 file = os.path.join(dir_name, base_filename + suffix)
 file2 = os.path.join(dir_name, base_filename)
