@@ -1,6 +1,7 @@
 # Spotify - Wake Word Detection
 
-Team: Swetha Bezawada, Mani Narasimhan, Tiam Moradi
+Spotify wake word detection
 
-
-
+With rise in number of customers using virtual assistants to interact with music streaming services, it is imperative for Spotify to build a voice assistant to retain customers within its platform thereby providing a curated end-user experience. The first step to a successful voice assistant is a wake word engine that is purely listening to the audio for certain phonetic properties. These engines are critical as they wake up the device for full processing of further commands spoken and these systems must always be listening, computationally efficient, and more importantly, privacy respecting.
+The key research question we are trying to answer is whether a machine learning model can accurately detect a wake word? We leveraged the Mozilla common voice dataset and recorded our own samples containing the wake word (“Hey Fourthbrain”) ensuring we capture common household noises in the background. Recordings were collected across broad demographic swath of ages, accents, and genders. Deep Neural network models were trained on the phonetic properties of the phrases to understand the different acoustics that go into each of the words in the wake word. Models with higher precision (positive predictive power) & accuracy were selected for deployment. Models trained include sequential Neural networks like LSTM (Long-short term memory & CNN (Convolutional Neural networks) besides multi-layer perceptron.
+You will interface with a Flask API webpage hosted on AWS EC2 instance. The webpage uses your computers microphone to record a specific command via JavaScript that is fed to the model. The drop-down list below lets you choose the prediction from the various types of models deployed. Our wake word engine boasts 94% accuracy with a precision of 88% (results specific to LSTM model). 
